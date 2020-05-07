@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion targetSdk
+
+    defaultConfig {
+        applicationId "net.sengjea.calibre"
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode 12
+        versionName '1.1.5'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDir 'main/java'
+            res.srcDir 'main/res'
+        }
+    }
+
+    lintOptions {
+        disable 'ConstantConditions'
+        disable 'GoogleAppIndexingWarning'
+        disable 'NewApi'
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    //implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:support-v4:21.0.0'
+}
